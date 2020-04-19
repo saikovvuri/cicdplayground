@@ -36,4 +36,3 @@ stages:
           appType: 'webAppLinux'
           WebAppName: 'cicd-webapp'
           packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-     
