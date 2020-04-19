@@ -29,5 +29,11 @@ stages:
      pool:
        vmImage: 'ubuntu-latest'
      steps:
-       - 
+      - task: AzureRmWebAppDeployment@4
+        inputs:
+          ConnectionType: 'AzureRM'
+          azureSubscription: 'Sakovvu Azure'
+          appType: 'webAppLinux'
+          WebAppName: 'cicd-webapp'
+          packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
      
