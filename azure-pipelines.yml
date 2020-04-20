@@ -48,7 +48,7 @@ stages:
       
       - task: AzureWebApp@1
         inputs:
-          azureSubscription: $azureserviceconnection
+          azureSubscription: $(azureserviceconnection)
           appType: 'webAppLinux'
-          appName: $webappname
+          appName: $(webappname)
           package: '$(System.ArtifactsDirectory)/**/*.zip'
