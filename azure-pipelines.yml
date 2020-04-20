@@ -10,7 +10,7 @@ stages:
      variables:
        buildConfiguration: 'Release'
      steps:
-      - script: dotnet build --configuration $(buildConfiguration)
+      - script: dotnet build -r 'linux-x64' --configuration $(buildConfiguration)
         displayName: 'dotnet build $(buildConfiguration)'
       - task: DotNetCoreCLI@2
         inputs:
