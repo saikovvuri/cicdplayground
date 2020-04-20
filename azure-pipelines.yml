@@ -9,9 +9,19 @@ stages:
        vmImage: 'ubuntu-latest'
      variables:
        buildConfiguration: 'Release'
+       rid: 'linux-x64'
      steps:
-      - script: dotnet build -r 'linux-x64' --configuration $(buildConfiguration)
+      - task: UseDotNet@2
+        inputs:
+          version: '3.1.x'
+          packageType: sdk
+      
+      - task: DotNetCoreCLI@2
         displayName: 'dotnet build $(buildConfiguration)'
+        inputs:
+          command: 'build'
+          arguments: '-r $(rid) --configuration $(buildConfiguration) /p:SourceRevisionId=$(Build.SourceVersion)'
+
       - task: DotNetCoreCLI@2
         inputs:
           command: 'publish'
