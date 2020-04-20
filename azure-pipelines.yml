@@ -48,7 +48,7 @@ stages:
       
       - task: AzureWebApp@1
         inputs:
-          azureSubscription: 'Sakovvu Azure'
+          azureSubscription: $azureserviceconnection
           appType: 'webAppLinux'
-          appName: 'cicd-webapp'
+          appName: $webappname
           package: '$(System.ArtifactsDirectory)/**/*.zip'
