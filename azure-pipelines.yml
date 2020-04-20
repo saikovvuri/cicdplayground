@@ -45,10 +45,10 @@ stages:
           downloadType: 'specific'
           downloadPath: '$(System.ArtifactsDirectory)'
           artifactName: 'cicd-sample'
-      - task: AzureRmWebAppDeployment@4
+      
+      - task: AzureWebApp@1
         inputs:
-          ConnectionType: 'AzureRM'
           azureSubscription: 'Sakovvu Azure'
           appType: 'webAppLinux'
-          WebAppName: 'cicd-webapp'
-          packageForLinux: '$(System.ArtifactsDirectory)/**/*.zip'
+          appName: 'cicd-webapp'
+          package: '$(System.ArtifactsDirectory)/**/*.zip'
